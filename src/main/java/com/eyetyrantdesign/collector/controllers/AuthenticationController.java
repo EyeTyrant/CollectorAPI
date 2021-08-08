@@ -42,8 +42,6 @@ public class AuthenticationController {
 
    private static void setUserInSession(HttpSession session, User user) {
     session.setAttribute(userSessionKey, user.getId());
-    session.setAttribute("SameSite", "None");
-    session.setAttribute("Secure", "true");
   }
 
 //  @PostMapping("/reg")
