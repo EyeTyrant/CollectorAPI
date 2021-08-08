@@ -40,7 +40,6 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
                            Object handler) throws IOException {
     // LOG IN NOT REQUIRED FOR WHITELIST PATHS
     if (isWhitelisted((request.getRequestURI()))) {
-      response.setHeader("Set-Cookie", response.getHeader("Set-Cookie") + "; SameSite=none, secure=true");
       // RETURN TRUE ALLOWS THE REQUEST TO PROCEED
     System.out.println("Hello");
       return true;
@@ -49,6 +48,8 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     // RETRIEVES USER'S SESSION OBJECT CONTAINED IN THE REQUEST
     HttpSession session = request.getSession();
     session.setMaxInactiveInterval(2*60);
+    session.setAttribute("SameSite", "None")
+    session.setAttribute("Secure", "true");
     // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
     User user = authenticationController.getUserFromSession(session);
     // IF USER IS LOGGED IN
