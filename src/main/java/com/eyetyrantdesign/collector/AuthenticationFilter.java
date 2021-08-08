@@ -40,7 +40,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
                            Object handler) throws IOException {
     // LOG IN NOT REQUIRED FOR WHITELIST PATHS
     if (isWhitelisted((request.getRequestURI()))) {
-      response.setHeader("SameSite", "None");
+      response.addHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None; Secure=true");
       // RETURN TRUE ALLOWS THE REQUEST TO PROCEED
     System.out.println("Hello");
       return true;
