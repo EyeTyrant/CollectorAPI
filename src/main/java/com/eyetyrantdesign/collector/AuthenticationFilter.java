@@ -48,7 +48,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     // RETRIEVES USER'S SESSION OBJECT CONTAINED IN THE REQUEST
     HttpSession session = request.getSession();
     session.setMaxInactiveInterval(2*60);
-    session.setAttribute("SameSite", "None")
+    session.setAttribute("SameSite", "None");
     session.setAttribute("Secure", "true");
     // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
     User user = authenticationController.getUserFromSession(session);
