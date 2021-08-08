@@ -14,8 +14,8 @@ import java.util.Collections;
 import java.util.Optional;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
-@CrossOrigin(allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
+//@CrossOrigin(allowCredentials = "true")
 public class CollectorController {
 
   @Autowired
