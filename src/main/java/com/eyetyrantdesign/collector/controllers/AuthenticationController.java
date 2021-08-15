@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://eyetyrant.github.io/collectorui/", allowCredentials = "true")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 //@CrossOrigin(allowCredentials = "true")
 public class AuthenticationController {
 
