@@ -4,6 +4,7 @@ import com.eyetyrantdesign.collector.controllers.AuthenticationController;
 import com.eyetyrantdesign.collector.models.User;
 import com.eyetyrantdesign.collector.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseCookie;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.http.HttpHeaders;
 
 public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
@@ -48,7 +50,12 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     // RETRIEVES USER'S SESSION OBJECT CONTAINED IN THE REQUEST
     HttpSession session = request.getSession();
     session.setMaxInactiveInterval(2*60);
-    response.addHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None; Secure");
+    ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(session))
+        .sameSite("None")
+        .secure(true)
+        .path("/")
+        .build();
+    response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
   // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
     User user = authenticationController.getUserFromSession(session);
     // IF USER IS LOGGED IN
