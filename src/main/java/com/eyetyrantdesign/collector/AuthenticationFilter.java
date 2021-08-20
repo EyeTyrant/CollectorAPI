@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseCookie
+import org.springframework.http.ResponseCookie;
 
 public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
