@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", allowCredentials = "true")
+@CrossOrigin(origins = "*")
 //@CrossOrigin(allowCredentials = "true")
 public class CollectorController {
 
