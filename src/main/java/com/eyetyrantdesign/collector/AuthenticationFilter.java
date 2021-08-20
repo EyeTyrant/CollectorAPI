@@ -57,7 +57,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     // IF USER IS LOGGED IN
     if (user != null) {
       System.out.println("Goodbye");
-      response.addHeader(HttpHeaders.SET_COOKIE, ResponseCookie.from("Hb", String.valueOf(user)).build().toString());
+      response.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None, Secure=true");
 
 
 //      ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(user))
