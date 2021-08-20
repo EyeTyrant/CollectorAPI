@@ -48,8 +48,8 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     // RETRIEVES USER'S SESSION OBJECT CONTAINED IN THE REQUEST
     HttpSession session = request.getSession();
     session.setMaxInactiveInterval(2*60);
-    response.setHeader("Set-Cookie", response.getHeader("Set-Cookie") + "; HttpOnly; SameSite=None; Secure");
-    // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
+    response.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None; Secure")
+  // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
     User user = authenticationController.getUserFromSession(session);
     // IF USER IS LOGGED IN
     if (user != null) {
