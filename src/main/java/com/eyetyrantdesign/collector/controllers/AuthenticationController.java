@@ -123,7 +123,6 @@ public class AuthenticationController {
 
     setUserInSession(request.getSession(), theUser);
     System.out.println(theUser.getId());
-
     return theUser.getId();
 
 //    String first = theUser.getFirstName();
