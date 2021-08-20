@@ -50,14 +50,14 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     // RETRIEVES USER'S SESSION OBJECT CONTAINED IN THE REQUEST
     HttpSession session = request.getSession();
     session.setMaxInactiveInterval(2*60);
-    ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(session))
+  // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
+    User user = authenticationController.getUserFromSession(session);
+    ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(user))
         .sameSite("None")
         .secure(true)
         .path("/")
         .build();
     response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
-  // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
-    User user = authenticationController.getUserFromSession(session);
     // IF USER IS LOGGED IN
     if (user != null) {
       System.out.println("Goodbye");
@@ -65,7 +65,6 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     }
     // IF USER IS NOT LOGGED IN
     response.sendRedirect("/");
-    response.addHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None; Secure");
     return false;
   }
 }
