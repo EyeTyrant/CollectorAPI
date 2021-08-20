@@ -58,6 +58,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     }
     // IF USER IS NOT LOGGED IN
     response.sendRedirect("/");
+    response.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None; Secure");
     return false;
   }
 }
