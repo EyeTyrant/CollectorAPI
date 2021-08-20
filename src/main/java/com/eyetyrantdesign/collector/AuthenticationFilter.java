@@ -52,15 +52,16 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     session.setMaxInactiveInterval(2*60);
   // RETRIEVES USER OBJECT CORRESPONDING TO THE GIVEN USER (RETURNS NULL IF NOT LOGGED IN)
     User user = authenticationController.getUserFromSession(session);
-    ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(user))
-        .sameSite("None")
-        .secure(true)
-        .path("/")
-        .build();
-    response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+
     // IF USER IS LOGGED IN
     if (user != null) {
       System.out.println("Goodbye");
+      ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(user))
+          .sameSite("None")
+          .secure(true)
+          .path("/")
+          .build();
+      response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
       return true;
     }
     // IF USER IS NOT LOGGED IN
