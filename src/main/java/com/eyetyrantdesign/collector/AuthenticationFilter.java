@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie
 
 public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
@@ -56,12 +57,15 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     // IF USER IS LOGGED IN
     if (user != null) {
       System.out.println("Goodbye");
-      ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(user))
-          .sameSite("None")
-          .secure(true)
-          .path("/")
-          .build();
-      response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+      response.addHeader(HttpHeaders.SET_COOKIE, ResponseCookie.from("Hb", String.valueOf(user)).build().toString());
+
+
+//      ResponseCookie cookie = ResponseCookie.from("Hb", String.valueOf(user))
+//          .sameSite("None")
+//          .secure(true)
+//          .path("/")
+//          .build();
+//      response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
       return true;
     }
     // IF USER IS NOT LOGGED IN
