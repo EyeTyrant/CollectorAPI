@@ -45,7 +45,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     if (isWhitelisted((request.getRequestURI()))) {
       // RETURN TRUE ALLOWS THE REQUEST TO PROCEED
     System.out.println("Hello");
-      response.addHeader(response.getHeader("Set-Cookie"),"SameSite=None Secure=true");
+      response.addHeader("Set-Cookie","SameSite=None Secure=true");
       return true;
     }
 
