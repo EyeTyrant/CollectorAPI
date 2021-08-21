@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://collectorui.herokuapp.com/", allowCredentials = "true")
+@CrossOrigin(origins = "https://collectorui.herokuapp.com/*", allowCredentials = "true")
 //@CrossOrigin(allowCredentials = "true")
 public class CollectorController {
 
