@@ -1,5 +1,7 @@
 package com.eyetyrantdesign.collector.models;
 
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.util.Collection;
 
@@ -10,6 +12,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
+
+@Component
 public class SameSiteFilter implements javax.servlet.Filter {
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
