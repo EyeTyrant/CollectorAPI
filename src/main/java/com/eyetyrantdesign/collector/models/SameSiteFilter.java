@@ -1,5 +1,7 @@
 package com.eyetyrantdesign.collector.models;
 
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @Component
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class SameSiteFilter implements javax.servlet.Filter {
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
