@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://collectorui.herokuapp.com/*", allowCredentials = "true")
+@CrossOrigin(origins = "http://collectorui.herokuapp.com/*", allowCredentials = "true")
 //@CrossOrigin(allowCredentials = "true")
 public class AuthenticationController {
 
