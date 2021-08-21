@@ -46,7 +46,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
       // RETURN TRUE ALLOWS THE REQUEST TO PROCEED
     System.out.println("Hello");
 //      response.addHeader(String.valueOf(response.getHeaders("Set-Cookie")),"SameSite=None Secure=true");
-      response.addHeader("Set-Cookie", String.format("%s; %s", response.getHeader("Set-Header"), "SameSite=None"));
+
       return true;
     }
 
