@@ -1,6 +1,12 @@
 # CollectorAPI
-## API for liftOffProject hosted on Heroku. mySQL database hosted on Amazon RDS.
 
+## API for [liftOffProject](https://github.com/EyeTyrant/liftOffProject) hosted on Heroku. mySQL database hosted on Amazon RDS.
+The app can be accessed at https://eyetyrant.github.io/collectorui/ with your Firefox browser,
+(not yet compatible with Safari, Chrome, or Edge).
+
+## OR
+
+From Dockerhub:
 
 With docker installed, type the following commands in your cli to interact with the app:
 
