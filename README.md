@@ -1,6 +1,6 @@
 # CollectorAPI
 
-## Java API for [liftOffProject](https://github.com/EyeTyrant/liftOffProject) hosted on Heroku. mySQL database hosted on Amazon RDS.
+## Java API for [liftOffProject](https://github.com/EyeTyrant/liftOffProject) hosted on Heroku. MySQL database hosted on Amazon RDS.
 The app can be accessed at https://eyetyrant.github.io/collectorui/ with your Firefox browser,
 (not yet compatible with Safari, Chrome, or Edge).
 
