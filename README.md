@@ -13,4 +13,4 @@ With docker installed, type the following commands in your cli to interact with 
 7. Llogin.
 8. Click on "Your Collections" to CRUD your collection.
 
-To pull images from the github repositories add the prefix ghcr.io/ 
+To pull images from the github repositories instead of Dockerhub, add the prefix ghcr.io/ 
